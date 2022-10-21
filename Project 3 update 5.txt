@@ -1,6 +1,8 @@
 # PROJECT: HAWAIIAN WORD PRONUNCIATION
 # Hey. My name is Ayush Bhardwaj
-# DESCRIPTION: in this project, we are producing the pronunciation of each and every Hawaiian word/sentence, with proper spacing and gaps.
+# PROJECT: HAWAIIAN WORD PRONUNCIATION
+# Language used: Python
+# DESCRIPTION: In this project, we are producing the pronunciation of each and every Hawaiian word/sentence, with proper spacing and gaps.
 consonants = {'p':'p','k':'k','h':'h','l':'l','m':'m','n':'n'} #list is created for consonants 
 vowels = {'a':'ah','e':'eh','i':'ee','o':'oh','u':'oo'}
 w_pro = {'w':'w','aw':'w','iw':'v','ew':'v','uw':'w','ow':'w'}
