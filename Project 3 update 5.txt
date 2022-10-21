@@ -1,6 +1,5 @@
-# PROJECT 3: HAWAIIAN WORD PRONUNCIATION
-# Hey. My name is Ayush Bhardwaj(UIN - 651465377)
-# DESCRIPTION - In this program, 
+# PROJECT: HAWAIIAN WORD PRONUNCIATION
+# Hey. My name is Ayush Bhardwaj
 consonants = {'p':'p','k':'k','h':'h','l':'l','m':'m','n':'n'} #list is created for consonants 
 vowels = {'a':'ah','e':'eh','i':'ee','o':'oh','u':'oo'}
 w_pro = {'w':'w','aw':'w','iw':'v','ew':'v','uw':'w','ow':'w'}
