@@ -1,0 +1,79 @@
+# PROJECT 3: HAWAIIAN WORD PRONUNCIATION
+# Hey. My name is Ayush Bhardwaj(UIN - 651465377)
+# DESCRIPTION - In this program, 
+consonants = {'p':'p','k':'k','h':'h','l':'l','m':'m','n':'n'} #list is created for consonants 
+vowels = {'a':'ah','e':'eh','i':'ee','o':'oh','u':'oo'}
+w_pro = {'w':'w','aw':'w','iw':'v','ew':'v','uw':'w','ow':'w'}
+vowels_pair = {'ai':'eye','ae':'eye','ao':'ow','au':'ow','ei':'ay','eu':'eh-oo','iu':'ew','oi':'oy','ou':'ow','ui':'ooey'}# list is created for storing the vowel pairs and their pronunciations.
+valid_letters = list(vowels.keys()) + list(consonants.keys()) + ['w']
+valid = True
+pro = ''
+answer = ""
+valid1 = True
+while valid1: # while loop initiated for printing pronunciation for numerous words 
+  word = input("Enter a hawaiian word: ")
+  word = word.lower()
+  count = 0
+  while count < len(word) and valid: # while loop initiated for checking the word length and valid
+    letter = word[count]
+    if letter not in valid_letters and letter != '\'' and letter != ' ':
+        valid = False
+        print("Invalid word,", letter ," is not a valid hawaiian character.")
+        answer = input("Would you like to enter another word? [y/yes, n/no] ")
+        answer = answer.lower()
+
+
+        
+    count += 1
+  if valid:
+    count = 0
+    while count < len(word):
+        letter = word[count] #storing the letter at indexing number "count" in variable "letter"
+        if letter in list(consonants.keys()): 
+          pro += consonants[letter]
+        elif letter == 'w':
+            if count == 0:
+                pro += w_pro['w'] # storing the pronunciation present in the list with key 'w'
+            else:
+                letter_before = word[count - 1] 
+                if letter_before in list(vowels.keys()): # if letter before 'w'is a vowel
+                    pair = letter_before + letter # some letter + 'w'
+                    pro += w_pro[pair] 
+        elif letter in list(vowels.keys()):
+            if count == len(word)-1:
+                pro += vowels[letter] + "-"
+            else:
+                letter_after = word[count+1]
+                pair_2 = letter + letter_after
+                if pair_2 in list(vowels_pair.keys()): # checking if pair of vowels is present in the vowels_pair list
+                    if word[count+1] == '\'':
+                        pro += vowels_pair[pair_2]
+                    else:
+                      if letter_after == " ":
+                        pro += vowels_pair[pair_2]
+                      else:
+                        pro += vowels_pair[pair_2] + "-"
+                        count+= 1
+                else:
+                    if word[count+1] == '\'': # checking if the next character is a single apostrophe
+                        pro += vowels[letter]
+                    else:
+                      if letter_after == " ":
+                        pro += vowels[letter]
+                      else:
+                        pro += vowels[letter] + "-" # storing the letter to variable pro with hyphen
+        elif letter == '\'':
+          pro += letter
+        elif letter == ' ':
+          pro += letter 
+        count += 1
+    pro = pro.capitalize() # to capitalize all the letters in the string pro
+    print(word.upper(), "is pronounced", pro[:-1]) # printing the pronunciation in captial letters without the hyphen
+    answer = input("Would you like to enter another word? [y/yes, n/no] ")# to get the input inside the while loop for inputing more words
+    answer = answer.lower()
+    if answer == "yes" or answer == "y":
+      valid1 = True
+    elif answer == "no" or answer == "n":
+      valid1 = False
+    pro=""
+print("All done.")
